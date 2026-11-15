@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EUDIA Brussels</title>
+  <meta http-equiv="refresh" content="0; url=html/MainPage_tr.html">
+  <link rel="icon" type="image/png" href="img/logo/favicon.png">
+  <script>
+    // Tarayıcı dili Türkçe değilse İngilizce sayfaya yönlendir
+    (function () {
+      var lang = (navigator.language || 'tr').toLowerCase();
+      var target = lang.indexOf('tr') === 0 ? 'html/MainPage_tr.html' : 'html/MainPage_en.html';
+      window.location.replace(target);
+    })();
+  </script>
+</head>
+<body>
+  <p><a href="html/MainPage_tr.html">EUDIA Brussels — Türkçe</a> · <a href="html/MainPage_en.html">English</a></p>
+</body>
+</html>

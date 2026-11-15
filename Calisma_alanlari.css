@@ -1,0 +1,87 @@
+/* =========================================================
+   EUDİA Brussels — Çalışma Alanları (Calisma_alanlari_tr / _en)
+   ========================================================= */
+
+.areas-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr));
+  gap: 24px;
+}
+
+.area-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 24px;
+  padding: 36px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform .45s var(--ease), box-shadow .45s var(--ease), border-color .45s;
+}
+.area-card::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--blue);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform .5s var(--ease);
+}
+.area-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: #D6DCE8; }
+.area-card:hover::before { transform: scaleY(1); }
+.area-card:hover .icon-badge { background: var(--blue); color: #fff; transform: rotate(-6deg) scale(1.05); }
+
+.area-card__num {
+  position: absolute;
+  right: 28px;
+  top: 18px;
+  font-family: var(--font-serif);
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--blue-50);
+  transition: color .45s;
+  pointer-events: none;
+}
+.area-card:hover .area-card__num { color: #D3E0F6; }
+
+.area-card__body { display: flex; flex-direction: column; gap: 12px; position: relative; }
+.area-card h2 {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--navy);
+  padding-right: 56px;
+}
+.area-card p { font-size: 16px; line-height: 1.75; color: var(--text); }
+
+/* Ana sayfadan #alan-N ile gelindiğinde vurgulama */
+.area-card.is-highlight { animation: area-highlight 2.2s var(--ease); }
+@keyframes area-highlight {
+  0%   { box-shadow: 0 0 0 0 rgba(227, 178, 60, 0); border-color: var(--line); }
+  20%  { box-shadow: 0 0 0 6px rgba(227, 178, 60, .45); border-color: var(--gold); }
+  100% { box-shadow: 0 0 0 0 rgba(227, 178, 60, 0); border-color: var(--line); }
+}
+
+@media (max-width: 560px) {
+  .area-card { grid-template-columns: 1fr; padding: 28px; gap: 18px; }
+  .area-card__num { font-size: 48px; right: 20px; }
+}
+
+/* Yaklaşım notu */
+.areas-note {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 56px;
+  padding: 36px 40px;
+  border-radius: var(--radius);
+  background: var(--blue-50);
+}
+.areas-note p { max-width: 760px; font-family: var(--font-serif); font-size: 21px; line-height: 1.5; color: var(--navy); }

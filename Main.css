@@ -1,0 +1,196 @@
+/* =========================================================
+   EUDIA Brussels — Ana sayfa (MainPage_tr / MainPage_en)
+   ========================================================= */
+
+/* ---------- Giriş (hero) ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--blue);   /* logonun zemin rengiyle aynı */
+  color: #fff;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 0% 100%, rgba(10, 31, 79, .55), transparent 50%);
+  pointer-events: none;
+}
+.hero .deco-arcs { left: -160px; right: auto; width: 720px; opacity: .9; }
+
+.hero__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+  align-items: center;
+  gap: 40px;
+  padding: 72px 0 88px;
+}
+.hero__text { display: flex; flex-direction: column; gap: 26px; }
+.hero__eyebrow { display: flex; align-items: center; gap: 14px; }
+.hero__eyebrow .gold-rule { width: 40px; }
+.hero h1 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(40px, 5vw, 66px);
+  line-height: 1.08;
+  letter-spacing: -.01em;
+}
+.hero h1 em { font-style: italic; color: #fff; }
+.hero__lead { max-width: 600px; font-size: 18px; line-height: 1.7; color: #E1E9F8; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 6px; }
+
+.hero__visual {
+  display: flex;
+  justify-content: center;
+  perspective: 900px;
+}
+.hero__logo-wrap {
+  width: 100%;
+  max-width: 480px;
+}
+.hero__logo {
+  width: 100%;
+  height: auto;
+  transition: transform .5s var(--ease);
+  /* logonun kare kenarlarını zemine yumuşakça karıştırır */
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 75%, transparent 100%);
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 75%, transparent 100%);
+}
+.hero__visual { animation: rise 1.1s var(--ease) .25s both; }
+
+@media (max-width: 960px) {
+  .hero__grid { grid-template-columns: 1fr; padding: 56px 0 72px; }
+  .hero__visual { order: -1; }
+  .hero__logo-wrap { max-width: 300px; }
+}
+
+/* ---------- Slogan ---------- */
+.motto { background: #fff; border-bottom: 1px solid var(--line); padding: 76px 0; }
+.motto__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+.motto blockquote {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(26px, 2.8vw, 36px);
+  line-height: 1.35;
+  color: var(--navy);
+}
+
+/* ---------- Hakkımızda özeti ---------- */
+.intro .photo { aspect-ratio: 5 / 4; }
+
+/* ---------- Çalışma alanları (kısa) ---------- */
+.area-mini {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 200px;
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: var(--radius);
+  background: var(--navy-2);
+  color: #fff;
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform .45s var(--ease), background-color .45s, border-color .45s;
+}
+.area-mini::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%; height: 3px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .5s var(--ease);
+}
+.area-mini:hover { color: #fff; transform: translateY(-6px); background: #183A85; border-color: rgba(255, 255, 255, .16); }
+.area-mini:hover::after { transform: scaleX(1); }
+.area-mini .icon-badge { background: rgba(255, 255, 255, .08); color: #fff; }
+.area-mini:hover .icon-badge { background: var(--gold); color: var(--navy); transform: rotate(-6deg); }
+.area-mini__num { font-family: var(--font-serif); font-size: 15px; font-weight: 600; color: var(--gold); }
+.area-mini h3 { font-family: var(--font-serif); font-size: 21px; font-weight: 600; line-height: 1.25; }
+.area-mini__more {
+  margin-top: auto;
+  font-size: 14px;
+  font-weight: 600;
+  color: #C9D4EC;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+}
+.area-mini:hover .arrow { transform: translateX(5px); }
+
+/* ---------- Diaspora ve Türkiye ---------- */
+.pillar { display: flex; flex-direction: column; gap: 16px; padding: 40px; }
+.pillar h3 { font-family: var(--font-serif); font-size: 26px; font-weight: 600; line-height: 1.25; color: var(--navy); }
+.pillar p { font-size: 16px; line-height: 1.75; color: var(--text); }
+.pillar:hover .icon-badge { background: var(--blue); color: #fff; transform: rotate(-6deg); }
+
+/* ---------- Yönetim önizlemesi ---------- */
+.person-mini {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 40px 28px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: transform .45s var(--ease), box-shadow .45s;
+}
+.person-mini:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+.person-mini .avatar { width: 128px; transition: transform .5s var(--ease); }
+.person-mini:hover .avatar { transform: scale(1.05); }
+.person-mini h3 { font-family: var(--font-serif); font-size: 23px; font-weight: 600; color: var(--navy); }
+.person-mini__role { font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); }
+.board-teaser__more { display: flex; justify-content: center; margin-top: 44px; }
+
+@media (max-width: 600px) {
+  .area-mini {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 16px;
+    min-height: 0;
+    padding: 18px 20px;
+  }
+  .area-mini .icon-badge { width: 46px; height: 46px; }
+  .area-mini__num { display: none; }
+  .area-mini h3 { font-size: 18px; }
+  .area-mini__more { margin: 0; font-size: 0; }
+  .area-mini__more .arrow { font-size: 18px; }
+  .pillar { padding: 28px; }
+}
+
+/* ---------- Son faaliyetler ---------- */
+.news-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform .45s var(--ease), box-shadow .45s var(--ease);
+}
+.news-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); color: inherit; }
+.news-card__photo { aspect-ratio: 4 / 3; border-radius: 0; }
+.news-card__photo img { object-position: center 30%; }
+.news-card__body { display: flex; flex-direction: column; gap: 10px; flex: 1; padding: 24px 26px 26px; }
+.news-card__place { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--gold-text); }
+.news-card__place svg { width: 15px; height: 15px; }
+.news-card h3 { font-family: var(--font-serif); font-size: 21px; font-weight: 600; line-height: 1.3; color: var(--navy); }
+.news-card__more { margin-top: auto; padding-top: 8px; display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; color: var(--blue); }
+.news-card:hover .arrow { transform: translateX(5px); }

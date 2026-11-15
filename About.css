@@ -1,0 +1,102 @@
+/* =========================================================
+   EUDİA Brussels — Hakkımızda (About_tr / About_en)
+   ========================================================= */
+
+.about-intro__body { display: flex; flex-direction: column; gap: 18px; }
+
+.about-intro__grid {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  gap: 64px;
+  align-items: start;
+}
+.about-intro__head { display: flex; flex-direction: column; gap: 18px; position: sticky; top: 120px; }
+
+@media (max-width: 900px) {
+  .about-intro__grid { grid-template-columns: 1fr; gap: 28px; }
+  .about-intro__head { position: static; }
+}
+
+.highlight-quote {
+  margin: 12px 0 0;
+  padding: 26px 28px;
+  border-left: 3px solid var(--gold);
+  background: #fff;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-family: var(--font-serif);
+  font-size: 22px;
+  line-height: 1.45;
+  color: var(--navy);
+}
+
+/* Misyon / Vizyon / Yaklaşım */
+.mva-card { display: flex; flex-direction: column; gap: 16px; }
+.mva-card h3 { font-family: var(--font-serif); font-size: 26px; font-weight: 600; color: var(--navy); }
+.mva-card p { font-size: 15.5px; line-height: 1.75; color: var(--text); }
+.mva-card:hover .icon-badge { background: var(--blue); color: #fff; transform: rotate(-6deg); }
+
+/* Diaspora / Türkiye */
+.split .photo { aspect-ratio: 4 / 3.4; }
+.split__block { display: flex; flex-direction: column; gap: 14px; }
+.split__block h2, .split__block h3 { font-family: var(--font-serif); font-weight: 600; color: var(--navy); }
+.split__block h2 { font-size: clamp(28px, 2.8vw, 36px); line-height: 1.2; }
+.split__divider { height: 1px; background: var(--line); }
+
+/* Kurumsal kimlik */
+.identity {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  gap: 64px;
+  align-items: center;
+}
+.identity__logo {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  max-width: 440px;
+}
+.identity__text { display: flex; flex-direction: column; gap: 22px; }
+.identity__facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 18px; }
+.identity__fact {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(255, 255, 255, .1);
+}
+.identity__fact strong { font-family: var(--font-serif); font-size: 20px; font-weight: 600; color: #fff; }
+.identity__fact span { font-size: 15px; line-height: 1.6; color: #C9D4EC; }
+
+.bars { display: flex; flex-direction: column; gap: 6px; }
+.bars i {
+  display: block;
+  width: 46px;
+  height: 7px;
+  background: #fff;
+  border-radius: 1px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .6s var(--ease);
+}
+.is-lit .bars i { transform: scaleX(1); }
+.is-lit .bars i:nth-child(2) { transition-delay: .15s; }
+.is-lit .bars i:nth-child(3) { transition-delay: .3s; }
+
+.identity .stars svg {
+  width: 22px;
+  height: 22px;
+  opacity: .2;
+  transform: scale(.6) rotate(-30deg);
+  transition: opacity .5s var(--ease), transform .6s var(--ease);
+  transition-delay: calc(var(--i, 0) * 140ms);
+}
+.identity.is-lit .stars svg { opacity: 1; transform: none; }
+
+.legal-line { font-size: 14px; color: #8FA0C6; }
+
+@media (max-width: 900px) {
+  .identity { grid-template-columns: 1fr; gap: 36px; }
+  .identity__logo { max-width: 320px; }
+}
